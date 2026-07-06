@@ -1,0 +1,15 @@
+.primary {
+  background-color: red;
+  color: black;
+}
+
+.secondary {
+  background-color: rebeccapurple;
+  columns: red;
+}
+
+.cityMasterDiv {
+    background-color: orange; 
+    width: 100px;
+    height: 100px;
+}
