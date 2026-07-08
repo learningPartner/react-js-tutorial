@@ -42,6 +42,9 @@ function App() {
               <li className="nav-item" >
                  <Link className="nav-link" to={'/conditionrender'}>conditionrender</Link>
               </li>
+                <li className="nav-item" >
+                 <Link className="nav-link" to={'/user/1'}>User</Link>
+              </li>
             </ul>
           </div>
         </div>

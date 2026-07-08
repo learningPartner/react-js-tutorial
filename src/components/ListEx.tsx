@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router";
+import MyList from "../reusableComponents/MyList";
+import Alert from "../reusableComponents/Alert";
+import ListGroup from "../reusableComponents/ListGroup";
 
 function ListEx() {
-  const cityList = ["Pune", "Mumbai", "Thane", "Nagpur"];
+  const cityList = ["Pune", "Mumbai", "Thane", "Nagpur","Panji","Solapur","Chandrapur"];
   const navigate = useNavigate();
 
   const studentList: Istudent[] = [
@@ -19,10 +22,24 @@ function ListEx() {
     navigate(-1)
   }
 
-  
+  const getSelectedItem =(itemName: string)=>{
+    debugger;
+    alert(itemName);
+  }
 
   return (
     <div>
+      <div className="row">
+        <div className="col-3">
+          <MyList listItem={cityList}></MyList>
+        </div>
+        <div className="col-4">
+          <Alert alertTitle="Success" alertClassName="alert-success" aletrtMessage="Welcome To List Page"></Alert>
+        </div>
+        <div className="col-4">
+          <ListGroup array={cityList} onSelectItem={getSelectedItem} ></ListGroup>
+        </div>
+      </div>
       <div className="row">
         <div className="col-3">
           <button onClick={navigateToDataBindig}>Navigate to Data Binding</button>
