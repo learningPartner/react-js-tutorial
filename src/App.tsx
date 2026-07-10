@@ -8,6 +8,7 @@ import ListEx from "./components/ListEx";
 import ConditionRender from "./components/ConditionRender";
 import User from "./components/User";
 import NotFound from "./components/NotFound";
+import GetApi from "./components/GetApi";
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
                  <Link className="nav-link" to={'/conditionrender'}>conditionrender</Link>
               </li>
                 <li className="nav-item" >
-                 <Link className="nav-link" to={'/user/1'}>User</Link>
+                 <Link className="nav-link" to={'get-api'}>GET</Link>
               </li>
             </ul>
           </div>
@@ -57,6 +58,7 @@ function App() {
         <Route path="/list" element={<ListEx />}></Route>
         <Route path="/user/:userid" element={<User />}></Route>
         <Route path="/conditionrender" element={<ConditionRender />}></Route>
+        <Route path="/get-api" element={<GetApi />}></Route>
          <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
