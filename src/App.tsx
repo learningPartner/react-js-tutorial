@@ -9,6 +9,7 @@ import ConditionRender from "./components/ConditionRender";
 import User from "./components/User";
 import NotFound from "./components/NotFound";
 import GetApi from "./components/GetApi";
+import PostApi from "./components/PostApi";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
                 <li className="nav-item" >
                  <Link className="nav-link" to={'get-api'}>GET</Link>
               </li>
+                <li className="nav-item" >
+                 <Link className="nav-link" to={'post-api'}>POST</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -59,6 +63,7 @@ function App() {
         <Route path="/user/:userid" element={<User />}></Route>
         <Route path="/conditionrender" element={<ConditionRender />}></Route>
         <Route path="/get-api" element={<GetApi />}></Route>
+          <Route path="/post-api" element={<PostApi />}></Route>
          <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
