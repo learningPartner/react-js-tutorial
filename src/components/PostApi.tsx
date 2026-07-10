@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import Jumbotron from "../reusableComponents/Jumbotron";
 
 import axios from "axios";
+import { vendorService } from "../services/vendorService";
 
-interface VendorModel {
+ export interface VendorModel {
   vendorId: number;
   vendorName: string;
   contactNo: string;
@@ -23,19 +24,38 @@ function PostApi() {
     getALlVendors();
   }, []);
 
-  const getALlVendors = async () => {
-    const result = await axios.get(
-      "https://api.freeprojectapi.com/api/BusBooking/GetBusVendors",
-    );
-    setVendorList(result.data);
-  };
+//   const getALlVendors = async () => {
+//     const result = await axios.get(
+//       "https://api.freeprojectapi.com/api/BusBooking/GetBusVendors",
+//     );
+//     setVendorList(result.data);
+//   };
+
+    const getALlVendors = async () => {
+        debugger;
+        const resposne =  await vendorService.getAllvendors();
+        setVendorList(resposne)
+
+    };
+
+//   const createNewvendor = async () => {
+//     debugger;
+//     const result = await axios.post(
+//       "https://api.freeprojectapi.com/api/BusBooking/PostBusVendor",
+//       vendorObj,
+//     );
+//     debugger;
+//     if (result.status == 201) {
+//       alert("Vendor Created Success");
+//       getALlVendors();
+//     } else {
+//       alert("API Error");
+//     }
+//   };
 
   const createNewvendor = async () => {
     debugger;
-    const result = await axios.post(
-      "https://api.freeprojectapi.com/api/BusBooking/PostBusVendor",
-      vendorObj,
-    );
+    const result =  await vendorService.createNewVendor(vendorObj)
     debugger;
     if (result.status == 201) {
       alert("Vendor Created Success");
@@ -100,7 +120,7 @@ function PostApi() {
     <div>
       <Jumbotron
         info="Post Api Integration with Form and API call Integration"
-        title="POST API"
+        title="Complete CRUD Operation"
       ></Jumbotron>
 
       <div className="container-fluid mt-4">
